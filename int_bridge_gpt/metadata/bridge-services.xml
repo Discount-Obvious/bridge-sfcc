@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns="http://www.demandware.com/xml/impex/services/2014-09-26">
+    <service-credential service-credential-id="bridge.auth.http">
+        <url>https://bridgegpt.ai/authenticate</url>
+        <user-id>username1</user-id>
+        <password encrypted="true" encryption-type="common.export">g+ai2bfT4wCSrEKsPR1xtLbWBeE+NEuMNsuFylkz0iBBGqynrvLLBIxZVINsrCTC</password>
+    </service-credential>
+
+    <service-credential service-credential-id="bridge.automatedTest.http">
+        <url>https://bridgegpt.ai/execute-test</url>
+        <user-id>username1</user-id>
+        <password encrypted="true" encryption-type="common.export">wGhgDcFODNK4QUoHH8T6mZxQJdaeTxHM583o5MQlXgYwOKtgQL494tCsH0UJjLnI</password>
+    </service-credential>
+
+    <service-credential service-credential-id="bridge.exportBridgeSettings.http">
+        <url>https://bridgegpt.ai/export-settings</url>
+        <user-id>username1</user-id>
+        <password encrypted="true" encryption-type="common.export">B0EdTenRFyZyL1RnacEh8M3Y7LC6KR7fLSMuQG4+0MXFOJgYZm8HzCKpxPW07m8E</password>
+    </service-credential>
+
+    <service-profile service-profile-id="bridge.auth.http">
+        <timeout-millis>2000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>true</cb-enabled>
+        <cb-calls>0</cb-calls>
+        <cb-millis>0</cb-millis>
+    </service-profile>
+
+    <service-profile service-profile-id="bridge.job.profile">
+        <timeout-millis>10000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>true</cb-enabled>
+        <cb-calls>0</cb-calls>
+        <cb-millis>0</cb-millis>
+    </service-profile>
+
+    <service service-id="bridge.auth.http">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix/>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>bridge.auth.http</profile-id>
+        <credential-id>bridge.auth.http</credential-id>
+    </service>
+
+    <service service-id="bridge.automatedTest.http">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix/>
+        <comm-log-enabled>false</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>bridge.job.profile</profile-id>
+        <credential-id>bridge.automatedTest.http</credential-id>
+    </service>
+
+    <service service-id="bridge.exportBridgeSettings.http">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix/>
+        <comm-log-enabled>false</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>bridge.job.profile</profile-id>
+        <credential-id>bridge.exportBridgeSettings.http</credential-id>
+    </service>
+
+</services>

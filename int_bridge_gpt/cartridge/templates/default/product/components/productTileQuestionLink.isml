@@ -1,0 +1,14 @@
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('bgpt_enableOnPLP') &&
+    (!dw.system.Site.getCurrent().getCustomPreferenceValue('bgpt_productIDAllowList') || 
+    dw.system.Site.getCurrent().getCustomPreferenceValue('bgpt_productIDAllowList').indexOf(product.id) !== -1)}">
+        <a href="javascript:;" 
+            class="bgpt-questions-plp-link bgpt-questions-plp-link-js bridge-item-js"
+            data-public-product-details="${URLUtils.url('Bridge-ProductData')}" 
+            data-token-url="${URLUtils.url('Bridge-GetConversationToken')}"
+            data-pid="${product.id}">
+            <img 
+                class="bgpt-questions-plp-link__image" 
+                src="${URLUtils.staticURL('/images/live-chat.svg')}"
+            />
+        </a>
+</isif>

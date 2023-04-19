@@ -1,0 +1,35 @@
+<div id="bgptQuestionsModal" tabindex="-1" role="dialog" aria-labelledby="questionsModalTitle">
+    <div class="bgpt-questions-modal">
+        <header class="bgpt-questions-modal__header">
+            <h2 class="bgpt-questions-modal__title" id="questionsModalTitle" aria-label="${Resource.msg('aria.product.questions.dialog.title','bridge',null)}">
+                ${Resource.msg('heading.product.questions.modal','bridge',null)}
+            </h2>
+            <button type="button" class="close" data-dismiss="modal" 
+                aria-label="${Resource.msg('label.close.dialog.button','common',null)}">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </header>
+        <div class="bgpt-questions-modal__body">
+            <div>
+                <p>
+                    ${Resource.msg('msg.product.questions.confirmation.modal','bridge',null)} <strong class="product-to-ask-about-js"></strong>
+                </p>
+            </div>
+            <div>
+                <input type="text" class="bgpt-questions-modal__body-input bgpt-question-js" placeholder="${Resource.msg('msg.product.questions.input.placeholder','bridge',null)}" />
+                <input type="hidden" name="conversationId" class="conversation-id-js" />
+            </div>
+            <isinclude template="components/spinner" />
+            <div class="bgpt-questions-modal__response-block bgpt-response-block-js">
+            </div>
+        </div>
+        <div class="bgpt-questions-modal__footer">
+            <button type="button" class="btn btn-primary bgpt-questions-modal__footer--submit-btn bgpt-ask-question-js">
+                ${Resource.msg('button.question','bridge', null)}
+            </button>
+            <button type="button" class="bgpt-questions-modal__footer--cancel-btn cancel-btn-js btn btn-outline-primary" data-dismiss="modal">
+                ${Resource.msg('button.cancel','address', null)}
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('bgpt_enableOnPDP') &&
+    (!dw.system.Site.getCurrent().getCustomPreferenceValue('bgpt_productIDAllowList') || 
+    dw.system.Site.getCurrent().getCustomPreferenceValue('bgpt_productIDAllowList').indexOf(product.id) !== -1)}">
+    <a href="javascript:;" class="bgpt-questions-pdp-link bgpt-questions-pdp-link-js bridge-item-js" 
+        data-public-product-details="${URLUtils.url('Bridge-ProductData')}" 
+        data-token-url="${URLUtils.url('Bridge-GetConversationToken')}"
+        data-pid="${product.id}">
+        <span>${Resource.msg('questions.label', 'bridge', null)}</span> 
+        <img 
+            class="bgpt-questions-pdp-link__image" 
+            src="${URLUtils.staticURL('/images/live-chat.svg')}"
+        />
+    </a>
+</isif>
+

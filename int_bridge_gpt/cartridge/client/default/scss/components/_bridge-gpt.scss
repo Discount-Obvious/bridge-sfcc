@@ -1,0 +1,200 @@
+@mixin for-phone-down { 
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin for-phone-up {
+    @media (min-width: 769px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-down {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-up {
+    @media (min-width: 1025px) {
+        @content;
+    }
+}
+
+/*
+
+* BridgeGPT Question Styling
+
+*/
+.bgpt-questions-plp-link,
+.bgpt-questions-pdp-link,
+.bgpt-questions-help-link {
+    width: 40px;
+    height: 40px;
+
+    &__image {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.bgpt-questions-pdp-link {
+    display: flex;
+    align-items: center;
+
+    &__image {
+        margin-left: 0.5rem;
+    }
+}
+
+#bgptQuestionsModal {
+    transition: all 800ms;
+    right: 0.5rem;
+    bottom: -40vh;
+    z-index: 9999999;
+    position: fixed;
+    width: 92%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ccc;
+
+    @include for-tablet-down {
+        bottom: unset;
+        left: -25vw;
+        max-width: unset;
+        max-height: fit-content;
+    }
+
+    &.show {
+        bottom: 0.5rem;
+
+        @include for-tablet-down {
+            width: 80%;
+            left: 10%;
+            top: 3%;
+        }
+
+        @include for-phone-down {
+            width: 96%;
+            left: 2%;
+            top: 2%;
+        }
+    }
+
+    .bgpt-questions-modal {
+        &__header {
+            display: flex;
+            justify-content: space-between;
+
+            .close {
+                position: relative;
+                bottom: 0.75rem;
+            }
+        }
+
+        &__response-block {
+            max-height: 440px;
+            overflow-y: scroll;
+            width: 104%;
+            padding-right: 4%;
+        }
+
+        &__body-input {
+            width: 100%;
+            height: 100%;
+            padding: 0.75rem 0.5rem;
+            margin: 0 0 0.5rem;
+
+            @include for-phone-down {
+                border-top: 1px solid #666;
+            }
+        }
+
+        &__footer {
+            display: flex;
+            justify-content: space-between;
+            border-top: unset;
+            padding-top: 1rem;
+        }
+
+        .bgpt-chat-line {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .bgpt-prior-response {
+            opacity: 0;
+            transition: all 300ms;
+    
+            &.reveal {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+/*
+
+* BridgeGPT Spinner
+
+*/
+.bridgegpt-spinner-container {
+    display: none;
+    margin: 0.75rem auto;
+    padding: 0.25rem 0.5rem;
+    justify-content: center;
+}
+
+.bridgegpt-spinner {
+    width: 70px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.bridgegpt-spinner > div {
+    width: 14px;
+    height: 14px;
+    background-color: #888;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.bridgegpt-spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.bridgegpt-spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+    }
+
+    40% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}

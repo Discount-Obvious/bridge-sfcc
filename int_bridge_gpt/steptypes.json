@@ -1,0 +1,74 @@
+{
+    "step-types": {
+        "script-module-step": [
+            {
+                "@type-id": "custom.AutomatedBridgeTest",
+                "module": "int_bridge_gpt/cartridge/scripts/jobsteps/AutomatedModelTest.js",
+                "description": "Performs automated tests on your AI chat model",
+                "function": "Run",
+                "parameters": {
+                    "parameters": [
+                        {
+                            "@name": "Test Type",
+                            "@type": "string",
+                            "@required": true,
+                            "@trim": true,
+                            "enum-values": {
+                                "value": [
+                                    "Persona",
+                                    "Completeness",
+                                    "Adversarial"
+                                ]
+                            },
+                            "description": "What type of test do you want to perform?",
+                            "default-value": "Persona"
+                        },
+                        {
+                            "@name": "Notification Email",
+                            "@type": "string",
+                            "@required": "true",
+                            "@trim": "true",
+                            "description": "What email address should we send the results to?"
+                        }
+                    ]
+                },
+                "status-codes": {
+                    "status": [{
+                            "@code": "ERROR",
+                            "description": "Used when an error occurred."
+                        },
+                        {
+                            "@code": "OK",
+                            "description": "Used when execution was successful."
+                        },
+                        {
+                            "@code": "NO_FILE_FOUND",
+                            "description": "Used when no file could be found in the source directory."
+                        }
+                    ]
+                }
+            },
+            {
+                "@type-id": "custom.ExportBridgeSettings",
+                "module": "int_bridge_gpt/cartridge/scripts/jobsteps/ExportBridgeSettings.js",
+                "description": "Export Your Bridge settings for Prompts and Products",
+                "function": "Run",
+                "status-codes": {
+                    "status": [{
+                            "@code": "ERROR",
+                            "description": "Used when an error occurred."
+                        },
+                        {
+                            "@code": "OK",
+                            "description": "Used when execution was successful."
+                        },
+                        {
+                            "@code": "NO_FILE_FOUND",
+                            "description": "Used when no file could be found in the source directory."
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

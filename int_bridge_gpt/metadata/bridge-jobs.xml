@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jobs xmlns="http://www.demandware.com/xml/impex/jobs/2015-07-01">
+    <job job-id="BGPT_Export_Settings" priority="0">
+        <description>Export your Bridge GPT settings. Ex: update the prompt the AI chat model uses.</description>
+        <parameters/>
+        <flow>
+            <context site-id="RefArch"/>
+            <step step-id="ExportBridgeSettings" type="custom.ExportBridgeSettings" enforce-restart="false">
+                <description>Update your Bridge GPT settings</description>
+                <parameters/>
+            </step>
+        </flow>
+        <rules>
+            <on-running runtime-threshold="60m" enabled="false">
+                <mark-job-as-hanging/>
+            </on-running>
+        </rules>
+        <triggers>
+            <run-once enabled="false">
+                <date>2023-04-11Z</date>
+                <time>22:47:00.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+
+    <job job-id="BGPT_Automated_Test" priority="0">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="RefArch"/>
+            <step step-id="AutomatedBridgeTest" type="custom.AutomatedBridgeTest" enforce-restart="false">
+                <description>Test that chat model baby</description>
+                <parameters>
+                    <parameter name="Test Type">Persona</parameter>
+                    <parameter name="Notification Email">briancase.js@gmail.com</parameter>
+                </parameters>
+            </step>
+        </flow>
+        <rules>
+            <on-running runtime-threshold="60m" enabled="false">
+                <mark-job-as-hanging/>
+            </on-running>
+        </rules>
+        <triggers>
+            <run-once enabled="true">
+                <date>2023-03-27Z</date>
+                <time>21:41:00.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+</jobs>

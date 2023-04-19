@@ -1,0 +1,23 @@
+{
+  "name": "Bridge GPT",
+  "version": "1.0.0",
+  "description": "A connector between Chat GPT and B2C Commerce",
+  "scripts": {
+    "init": "git init && git remote add origin https://github.com/SalesforceCommerceCloud/storefront-reference-architecture && npm install",
+    "update": "git pull origin master && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalesforceCommerceCloud/storefront-reference-architecture.git"
+  },
+  "homepage": "https://github.com/SalesforceCommerceCloud/storefront-reference-architecture",
+  "dependencies": {
+    "socket.io-client": "^4.6.1"
+  },
+  "packageName": "int_bridge_gpt",
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="Category">
+        <system-attribute-definitions>
+        </system-attribute-definitions>
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="bgpt_categoryBackground">
+                <display-name xml:lang="x-default">Category Background</display-name>
+                <description xml:lang="x-default">Background information to help the Bridge AI chat model answer questions about products in this category.</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom</display-name>
+                <attribute attribute-id="bgpt_categoryBackground"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="Product">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="bgpt_additionalProductInformation">
+                <display-name xml:lang="x-default">Additional Product Information</display-name>
+                <description xml:lang="x-default">Additional product information that can help the Bridge AI chat model answer questions about this product.</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="storefrontAttributes">
+                <display-name xml:lang="x-default">Storefront Attributes</display-name>
+                <attribute attribute-id="bgpt_additionalProductInformation"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="bgpt_apiKey">
+                <display-name xml:lang="x-default">Bridge GPT Api Key (Required)</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_companyBackground">
+                <display-name xml:lang="x-default">Company Background (Recommended)</display-name>
+                <description xml:lang="x-default">Information about your company that can help the AI chat model answer questions about your company.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_enableOnHelpSection">
+                <display-name xml:lang="x-default">Enable on Help Section? (Required)</display-name>
+                <description xml:lang="x-default">Do you want to enable Bridge GPT on the help section?</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_enableOnPDP">
+                <display-name xml:lang="x-default">Enable on PDP?</display-name>
+                <description xml:lang="x-default">Should we enable Bridge GPT on the PDP?</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_enableOnPLP">
+                <display-name xml:lang="x-default">Enable on PLP? (Required)</display-name>
+                <description xml:lang="x-default">Do you want to enable Bridge GPT on the Product Listing / Search page?</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_helpQuestionPrompt">
+                <display-name xml:lang="x-default">Help Question Prompt (Optional)</display-name>
+                <description xml:lang="x-default">Do you want to add a custom prompt in the user's message? If so, add it here. &#13;
+&#13;
+Otherwise, your model will use Bridge's default question prompt.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_helpRelevanceKeywords">
+                <display-name xml:lang="x-default">Help Relevance Keywords (Recommended)</display-name>
+                <description xml:lang="x-default">What concepts should the model use to judge the relevance of a help question? If this isn't filled out the model will use the Bridge GPT default.</description>
+                <type>set-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_helpSystemPrompt">
+                <display-name xml:lang="x-default">Help System Prompt (Optional)</display-name>
+                <description xml:lang="x-default">If you would like to add a custom system prompt for the chat model, include it here. &#13;
+&#13;
+Otherwise, your model will use Bridge's default system prompt.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_model">
+                <display-name xml:lang="x-default">AI Model (Optional)</display-name>
+                <description xml:lang="x-default">Which model do you want to use? Please be aware different models can have very different costs, response quality, and speed.</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">GPT-4</display>
+                        <value>gpt-4</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">GPT-3.5 Turbo</display>
+                        <value>gpt-3.5-turbo</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_productAttributeAllowList">
+                <display-name xml:lang="x-default">Product Attribute Allow List (Recommended)</display-name>
+                <description xml:lang="x-default">What custom product attributes should the AI chat model be able to see? &#13;
+&#13;
+Custom product attributes disallowed by default, but allowed if included here.</description>
+                <type>set-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_productIDAllowList">
+                <display-name xml:lang="x-default">Product ID Allow List (Optional)</display-name>
+                <description xml:lang="x-default">Do you want to restrict the chat model to only certain products? If so, add the IDs here. &#13;
+&#13;
+By default, all products are allowed.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_productQuestionPrompt">
+                <display-name xml:lang="x-default">Product Question Prompt (Optional)</display-name>
+                <description xml:lang="x-default">Do you want to add a custom prompt to the user's messages in the product section? If so, add it here. &#13;
+&#13;
+Otherwise, your model will use Bridge's default question prompt.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_productRelevanceKeywords">
+                <display-name xml:lang="x-default">Product Relevance Keywords (Recommended)</display-name>
+                <description xml:lang="x-default">What concepts should the model use to judge the relevance of a product question? If this isn't filled out the model will use the Bridge GPT default.</description>
+                <type>set-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_productSystemPrompt">
+                <display-name xml:lang="x-default">Product System Prompt (Optional)</display-name>
+                <description xml:lang="x-default">Do you want to add a custom system prompt for product questions? If so, add it here. &#13;
+&#13;
+Otherwise, the chat model will use Bridge's default system prompt.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_relevanceThreshold">
+                <display-name xml:lang="x-default">Relevance Threshold (Optional)</display-name>
+                <description xml:lang="x-default">Important: the relevance range is between 0.0 and 1.0, with a recommended settings range of 0.6 &amp; 0.1 - setting the value higher than this will result in the model refusing to answer most / all questions.</description>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>0.3</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="bgpt_testSettings">
+                <display-name xml:lang="x-default">Bridge GPT Test Settings (Optional)</display-name>
+                <description xml:lang="x-default">Set test settings here in a JSON format to execute automated tests of your chat model. &#13;
+&#13;
+Please consult our documentation for expected arguments and format.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="BridgeGPT">
+                <display-name xml:lang="x-default">Bridge GPT</display-name>
+                <attribute attribute-id="bgpt_enableOnPDP"/>
+                <attribute attribute-id="bgpt_enableOnPLP"/>
+                <attribute attribute-id="bgpt_enableOnHelpSection"/>
+                <attribute attribute-id="bgpt_productAttributeAllowList"/>
+                <attribute attribute-id="bgpt_productIDAllowList"/>
+                <attribute attribute-id="bgpt_helpQuestionPrompt"/>
+                <attribute attribute-id="bgpt_helpSystemPrompt"/>
+                <attribute attribute-id="bgpt_productQuestionPrompt"/>
+                <attribute attribute-id="bgpt_productSystemPrompt"/>
+                <attribute attribute-id="bgpt_testSettings"/>
+                <attribute attribute-id="bgpt_relevanceThreshold"/>
+                <attribute attribute-id="bgpt_productRelevanceKeywords"/>
+                <attribute attribute-id="bgpt_helpRelevanceKeywords"/>
+                <attribute attribute-id="bgpt_model"/>
+                <attribute attribute-id="bgpt_companyBackground"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+</metadata>

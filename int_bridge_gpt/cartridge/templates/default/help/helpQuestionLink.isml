@@ -1,0 +1,11 @@
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('bgpt_enableOnHelpSection')}">
+    <a href="javascript:;" 
+        class="bgpt-questions-help-link bgpt-questions-help-link-js bridge-item-js"
+        data-instance-details="${URLUtils.url('Bridge-Details')}"
+        data-token-url="${URLUtils.url('Bridge-GetConversationToken')}">
+        <img 
+            class="bgpt-questions-help-link__image" 
+            src="${URLUtils.staticURL('/images/live-chat.svg')}"
+        />
+    </a>
+</isif>
