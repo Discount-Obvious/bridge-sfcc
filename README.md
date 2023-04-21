@@ -5,7 +5,7 @@ Note: You will need your Bridge GPT username and password to complete the instal
 ## 1: Set up the Git Submodule
 
 #### Steps
-1. git submodule add <submodule_repository_url> ./cartridges/int_bridge_gpt
+1. git submodule add https://github.com/Discount-Obvious/bridge-sfcc ./cartridges/int_bridge_gpt
 2. git add .gitmodules ./cartridges/int_bridge_gpt
 3. git commit -m "[Your JIRA ticket]: Bridge GPT init"
 
